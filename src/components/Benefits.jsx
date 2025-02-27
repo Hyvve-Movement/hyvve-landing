@@ -4,6 +4,24 @@ import Section from './Section';
 import { GradientLight } from './design/Benefits';
 import ClipPath from '../assets/svg/ClipPath';
 
+// Import all card backgrounds directly
+import card1 from '../assets/benefits/card-1.svg';
+import card2 from '../assets/benefits/card-2.svg';
+import card3 from '../assets/benefits/card-3.svg';
+import card4 from '../assets/benefits/card-4.svg';
+import card5 from '../assets/benefits/card-5.svg';
+import card6 from '../assets/benefits/card-6.svg';
+
+// Map background class names to imported SVGs
+const backgroundMap = {
+  'bg-benefit-1': card1,
+  'bg-benefit-2': card2,
+  'bg-benefit-3': card3,
+  'bg-benefit-4': card4,
+  'bg-benefit-5': card5,
+  'bg-benefit-6': card6,
+};
+
 const Benefits = () => {
   return (
     <Section id="features">
@@ -18,7 +36,9 @@ const Benefits = () => {
             <div
               className="block relative p-0.5 bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem]"
               style={{
-                backgroundImage: `url(${item.backgroundUrl})`,
+                backgroundImage: `url(${
+                  backgroundMap[item.backgroundClassName] || ''
+                })`,
               }}
               key={item.id}
             >
